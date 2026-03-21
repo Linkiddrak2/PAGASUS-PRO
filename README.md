@@ -1,12 +1,12 @@
 <div align="center">
 
 ```
-                 ██████╗ ███████╗ ██████╗  █████╗ ███████╗██╗   ██╗███████╗
-                 ██╔══██╗██╔════╝██╔════╝ ██╔══██╗██╔════╝██║   ██║██╔════╝
-                 ██████╔╝█████╗  ██║  ███╗███████║███████╗██║   ██║███████╗
-                 ██╔═══╝ ██╔══╝  ██║   ██║██╔══██║╚════██║██║   ██║╚════██║
-                 ██║     ███████╗╚██████╔╝██║  ██║███████║╚██████╔╝███████╗
-                 ╚═╝     ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝
+██████╗ ███████╗ ██████╗  █████╗ ███████╗██╗   ██╗███████╗
+██╔══██╗██╔════╝██╔════╝ ██╔══██╗██╔════╝██║   ██║██╔════╝
+██████╔╝█████╗  ██║  ███╗███████║███████╗██║   ██║███████╗
+██╔═══╝ ██╔══╝  ██║   ██║██╔══██║╚════██║██║   ██║╚════██║
+██║     ███████╗╚██████╔╝██║  ██║███████║╚██████╔╝███████╗
+╚═╝     ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝
 ```
 
 # PEGASUS v1.3
@@ -27,7 +27,7 @@
 
 <br/>
 
-[Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Device Setup](#-android-device-setup) • [Changelog](#-changelog) • [License](#-license)
+[Features](#-features) • [Screenshots](#-screenshots) • [Installation](#-installation) • [Usage](#-usage) • [Device Setup](#-android-device-setup) • [Changelog](#-changelog) • [License](#-license)
 
 </div>
 
@@ -111,16 +111,34 @@
 
 ---
 
+<div align="center">
+  
+## Main Menu — Pegasus v1.1
+  
+![Pegasus Terminal 1](Screenshot_2025_1002_113702.jpg)
+
+## Main Menu — Pegasus v1.2
+
+![Pegasus Terminal 2](Screenshot_2025_1003_144711.jpg)
+
+## Main Menu — Pegasus v1.3
+
+![Pegasus Main Menu](Screenshot%202026-02-23%20223428.png)
+
+</div>
+
+---
+
 ## 💻 Installation
 
 ### ⚡ One-Line Quick Install
 
 | Platform | Command |
 |----------|---------|
-| **Ubuntu / Debian / Kali** | `sudo apt install -y python3 adb scrcpy git && git clone https://github.com/thakur2309/PAGASUS-PRO.git && cd PAGASUS-PRO && python3 pegasus.py` |
-| **Arch / Manjaro / BlackArch** | `sudo pacman -S python android-tools scrcpy git && git clone https://github.com/thakur2309/PAGASUS-PRO.git && cd PAGASUS-PRO && python3 pegasus.py` |
-| **macOS** | `brew install python android-platform-tools scrcpy git && git clone https://github.com/thakur2309/PAGASUS-PRO.git && cd PAGASUS-PRO && python3 pegasus.py` |
-| **Windows** | Install Python + ADB manually (see guide below), then run: `git clone https://github.com/thakur2309/PAGASUS-PRO.git && cd PAGASUS-PRO && python pegasus.py` |
+| **Ubuntu / Debian / Kali** | `sudo apt install -y python3 adb scrcpy git && git clone https://github.com/thakur2309/PAGASUS-PRO.git && cd PAGASUS-PRO && python3 pegasus_v_1.3.py` |
+| **Arch / Manjaro / BlackArch** | `sudo pacman -S python android-tools scrcpy git && git clone https://github.com/thakur2309/PAGASUS-PRO.git && cd PAGASUS-PRO && python3 pegasus_v_1.3.py` |
+| **macOS** | `brew install python android-platform-tools scrcpy git && git clone https://github.com/thakur2309/PAGASUS-PRO.git && cd PAGASUS-PRO && python3 pegasus_v_1.3.py` |
+| **Windows** | Install Python + ADB manually (see guide below), then: `git clone https://github.com/thakur2309/PAGASUS-PRO.git && cd PAGASUS-PRO && python pegasus_v_1.3.py` |
 
 ---
 
@@ -157,10 +175,16 @@ git clone https://github.com/thakur2309/PAGASUS-PRO.git
 cd PAGASUS-PRO
 ```
 
-**Step 7 — Run Pegasus**
+**Step 7 — Run Pegasus v1.3**
 ```bash
-python3 pegasus.py
+python3 pegasus_v_1.3.py
 ```
+
+> Want to run an older version?
+> ```bash
+> python3 pegasusV-1.2.py   # Run v1.2
+> python3 pegasus_v1.1.py   # Run v1.1
+> ```
 
 ---
 
@@ -186,12 +210,22 @@ sudo pacman -S scrcpy
 sudo pacman -S nmap
 ```
 
-**Step 5 — Clone and run**
+**Step 5 — Clone the repository**
 ```bash
 git clone https://github.com/thakur2309/PAGASUS-PRO.git
 cd PAGASUS-PRO
-python3 pegasus.py
 ```
+
+**Step 6 — Run Pegasus v1.3**
+```bash
+python3 pegasus_v_1.3.py
+```
+
+> Want to run an older version?
+> ```bash
+> python3 pegasusV-1.2.py   # Run v1.2
+> python3 pegasus_v1.1.py   # Run v1.1
+> ```
 
 ---
 
@@ -234,14 +268,24 @@ adb version
 
 Download from: https://git-scm.com/download/win → Install with default options
 
-**Step 5 — Clone and run**
+**Step 5 — Clone the repository**
 
 Open **Command Prompt** or **PowerShell**:
 ```cmd
 git clone https://github.com/thakur2309/PAGASUS-PRO.git
 cd PAGASUS-PRO
-python pegasus.py
 ```
+
+**Step 6 — Run Pegasus v1.3**
+```cmd
+python pegasus_v_1.3.py
+```
+
+> Want to run an older version?
+> ```cmd
+> python pegasusV-1.2.py   # Run v1.2
+> python pegasus_v1.1.py   # Run v1.1
+> ```
 
 > 💡 **Tip:** Use **Windows Terminal** (free from Microsoft Store) for best color rendering.
 
@@ -284,12 +328,22 @@ brew install scrcpy
 brew install nmap
 ```
 
-**Step 6 — Clone and run**
+**Step 6 — Clone the repository**
 ```bash
 git clone https://github.com/thakur2309/PAGASUS-PRO.git
 cd PAGASUS-PRO
-python3 pegasus.py
 ```
+
+**Step 7 — Run Pegasus v1.3**
+```bash
+python3 pegasus_v_1.3.py
+```
+
+> Want to run an older version?
+> ```bash
+> python3 pegasusV-1.2.py   # Run v1.2
+> python3 pegasus_v1.1.py   # Run v1.1
+> ```
 
 ---
 
@@ -325,11 +379,15 @@ Settings → About Phone
 ## 🚀 Usage
 
 ```bash
-# Linux / macOS
-python3 pegasus.py
+# Linux / macOS — Latest Version
+python3 pegasus_v_1.3.py
 
-# Windows
-python pegasus.py
+# Windows — Latest Version
+python pegasus_v_1.3.py
+
+# Run older versions
+python3 pegasusV-1.2.py    # v1.2
+python3 pegasus_v1.1.py    # v1.1
 ```
 
 **Main Menu Preview:**
@@ -388,7 +446,17 @@ All generated files are saved in the **same directory** where you run the script
 | ADB | ✅ Yes | Device communication | `sudo apt install adb` |
 | scrcpy | ⚪ Optional | Screen Mirror feature | `sudo apt install scrcpy` |
 | nmap | ⚪ Optional | Network scan in Security Tools | `sudo apt install nmap` |
-| Git | ⚪ Optional | Cloning the repository | `sudo apt install git` |
+| Git | ⚪ Recommended | Clone the repository | `sudo apt install git` |
+
+---
+
+## 📁 File Reference
+
+| File | Version | Run Command |
+|------|---------|-------------|
+| `pegasus_v_1.3.py` | v1.3 *(Latest)* | `python3 pegasus_v_1.3.py` |
+| `pegasusV-1.2.py` | v1.2 | `python3 pegasusV-1.2.py` |
+| `pegasus_v1.1.py` | v1.1 | `python3 pegasus_v1.1.py` |
 
 ---
 
@@ -408,7 +476,7 @@ All generated files are saved in the **same directory** where you run the script
 - ✅ **Human-readable storage** — `df -h` for easy reading
 - ✅ **Auto connection logging** — session log written on start and exit
 
-### v1.2
+### v1.2 — `pegasusV-1.2.py`
 - ✅ Expanded to full 20-option main menu
 - ✅ Power Off and Reboot device remotely
 - ✅ APK Install (sideload) and Uninstall
@@ -421,7 +489,7 @@ All generated files are saved in the **same directory** where you run the script
 - ✅ Remote camera trigger and photo pull
 - ✅ `re` module added for contact parsing
 
-### v1.1
+### v1.1 — `pegasus_v1.1.py`
 - ✅ Check device info (model, Android version, battery)
 - ✅ USB and Wi-Fi ADB connect and disconnect
 - ✅ Screen recording with custom duration
@@ -433,7 +501,7 @@ All generated files are saved in the **same directory** where you run the script
 - ✅ Initial release — basic ADB wrapper
 - ✅ Interactive terminal menu UI
 - ✅ Dependency checker on startup
-- ✅ Color-coded terminal output (Linux/macOS)
+- ✅ Color-coded terminal output
 
 ---
 
