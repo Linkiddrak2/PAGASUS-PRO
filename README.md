@@ -14,7 +14,7 @@
 **Android Device Management & Security Audit Tool**
 
 [![Python](https://img.shields.io/badge/Python-3.7%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-[![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20Windows%20%7C%20macOS-lightgrey?style=for-the-badge)](https://github.com/thakur2309/PAGASUS-PRO)
+[![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20Windows%20%7C%20macOS%20%7C%20Termux-lightgrey?style=for-the-badge)](https://github.com/thakur2309/PAGASUS-PRO)
 [![ADB](https://img.shields.io/badge/Requires-ADB-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com/tools/adb)
 [![Version](https://img.shields.io/badge/Version-1.3-orange?style=for-the-badge)](https://github.com/thakur2309/PAGASUS-PRO/releases)
 [![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](./LICENSE)
@@ -142,10 +142,11 @@
 
 | Platform | Command |
 |----------|---------|
-| **Ubuntu / Debian / Kali** | `sudo apt install -y python3 adb scrcpy git && git clone https://github.com/thakur2309/PAGASUS-PRO.git && cd PAGASUS-PRO && python3 pegasus_v_1.3.py` |
-| **Arch / Manjaro / BlackArch** | `sudo pacman -S python android-tools scrcpy git && git clone https://github.com/thakur2309/PAGASUS-PRO.git && cd PAGASUS-PRO && python3 pegasus_v_1.3.py` |
-| **macOS** | `brew install python android-platform-tools scrcpy git && git clone https://github.com/thakur2309/PAGASUS-PRO.git && cd PAGASUS-PRO && python3 pegasus_v_1.3.py` |
-| **Windows** | Install Python + ADB manually (see guide below), then: `git clone https://github.com/thakur2309/PAGASUS-PRO.git && cd PAGASUS-PRO && python pegasus_v_1.3.py` |
+| **Ubuntu / Debian / Kali** | `sudo apt install -y python3 adb scrcpy git && git clone https://github.com/thakur2309/PAGASUS-PRO.git && cd PAGASUS-PRO && pip3 install -r requirements.txt && python3 pegasus_v_1.3.py` |
+| **Arch / Manjaro / BlackArch** | `sudo pacman -S python android-tools scrcpy git && git clone https://github.com/thakur2309/PAGASUS-PRO.git && cd PAGASUS-PRO && pip install -r requirements.txt && python3 pegasus_v_1.3.py` |
+| **macOS** | `brew install python android-platform-tools scrcpy git && git clone https://github.com/thakur2309/PAGASUS-PRO.git && cd PAGASUS-PRO && pip3 install -r requirements.txt && python3 pegasus_v_1.3.py` |
+| **Windows** | Install Python + ADB manually (see guide below), then: `git clone https://github.com/thakur2309/PAGASUS-PRO.git && cd PAGASUS-PRO && pip install -r requirements.txt && python pegasus_v_1.3.py` |
+| **📱 Termux (Android)** | `pkg update && pkg install python git android-tools && git clone https://github.com/thakur2309/PAGASUS-PRO.git && cd PAGASUS-PRO && pip install -r requirements.txt && python pegasus_v_1.3.py` |
 
 ---
 
@@ -244,13 +245,21 @@ python3 pegasus_v_1.3.py
 2. Run the installer
 3. ✅ **Check "Add Python to PATH"** before clicking Install
 
-Verify in Command Prompt:
+Verify in Command Prompt or PowerShell:
 ```cmd
 python --version
 ```
 
+> 💡 **PowerShell (winget) — One command install:**
+> ```powershell
+> winget install Python.Python.3
+> ```
+
+---
+
 **Step 2 — Install ADB (Android Platform Tools)**
 
+**Option A — Manual install:**
 1. Download from: https://developer.android.com/tools/releases/platform-tools
 2. Extract the `.zip` to a folder (e.g., `C:\platform-tools\`)
 3. Add to Windows PATH:
@@ -260,36 +269,80 @@ python --version
    - Click **New** → Enter `C:\platform-tools`
    - Click **OK** on all windows
 
+**Option B — PowerShell (winget) — Recommended:**
+```powershell
+winget install Google.PlatformTools
+```
+> ADB is automatically added to PATH — no manual setup needed.
+
 Verify:
 ```cmd
 adb version
 ```
 
-**Step 3 — Install scrcpy** *(optional)*
+---
 
+**Step 3 — Install scrcpy** *(optional — for Screen Mirror feature)*
+
+**Option A — Manual install:**
 1. Download from: https://github.com/Genymobile/scrcpy/releases
 2. Extract to a folder (e.g., `C:\scrcpy\`)
-3. Add `C:\scrcpy\` to PATH using same method above
+3. Add `C:\scrcpy\` to PATH using same method as Step 2
+
+**Option B — PowerShell (winget) — Recommended:**
+```powershell
+winget install Genymobile.scrcpy
+```
+
+Verify:
+```powershell
+scrcpy --version
+```
+
+---
 
 **Step 4 — Install Git** *(if not installed)*
 
+**Option A — Manual install:**  
 Download from: https://git-scm.com/download/win → Install with default options
 
-**Step 5 — Clone the repository**
+**Option B — PowerShell (winget):**
+```powershell
+winget install Git.Git
+```
+
+---
+
+**Step 5 — Install all tools at once (PowerShell — Fastest Method)**
+
+Open PowerShell as Administrator and run this single command to install everything:
+```powershell
+winget install Python.Python.3 Google.PlatformTools Genymobile.scrcpy Git.Git
+```
+> ✅ This installs Python, ADB, scrcpy, and Git in one shot. Restart PowerShell after this.
+
+---
+
+**Step 6 — Clone the repository**
 
 Open **Command Prompt** or **PowerShell**:
-```cmd
+```powershell
 git clone https://github.com/thakur2309/PAGASUS-PRO.git
 cd PAGASUS-PRO
 ```
 
-**Step 6 — Run Pegasus v1.3**
-```cmd
+**Step 7 — Install Python dependencies**
+```powershell
+pip install -r requirements.txt
+```
+
+**Step 8 — Run Pegasus v1.3**
+```powershell
 python pegasus_v_1.3.py
 ```
 
 > Want to run an older version?
-> ```cmd
+> ```powershell
 > python pegasusV-1.2.py   # Run v1.2
 > python pegasus_v1.1.py   # Run v1.1
 > ```
@@ -354,7 +407,123 @@ python3 pegasus_v_1.3.py
 
 ---
 
-## 📱 Android Device Setup
+### 📱 Termux (Run Directly from Your Android Phone)
+
+> **What is Termux?** Termux is an Android terminal emulator that provides a full Linux environment on your phone — no root required. You can run Pegasus directly from your Android device using Termux.
+
+> ⚠️ **Note:** `scrcpy` (Screen Mirror — Option 5) does **not work** in Termux because it requires a display server which is not available on Android. All other features work normally.
+
+#### Install Termux
+
+1. **Install Termux from F-Droid** *(Recommended)*  
+   👉 https://f-droid.org/packages/com.termux/  
+   > ⚠️ The Google Play Store version of Termux is outdated — always use the F-Droid version.
+
+2. Open Termux and follow the steps below:
+
+**Step 1 — Update packages**
+```bash
+pkg update && pkg upgrade -y
+```
+
+**Step 2 — Install Python**
+```bash
+pkg install python -y
+```
+
+**Step 3 — Install Git**
+```bash
+pkg install git -y
+```
+
+**Step 4 — Install ADB**
+```bash
+pkg install android-tools -y
+```
+
+Verify installation:
+```bash
+adb version
+```
+
+**Step 5 — Install nmap** *(optional — required for Network Security Scan)*
+```bash
+pkg install nmap -y
+```
+
+**Step 6 — Clone the repository**
+```bash
+git clone https://github.com/thakur2309/PAGASUS-PRO.git
+cd PAGASUS-PRO
+```
+
+**Step 7 — Install Python dependencies**
+```bash
+pip install -r requirements.txt
+```
+
+**Step 8 — Run Pegasus v1.3**
+```bash
+python pegasus_v_1.3.py
+```
+
+> Want to run an older version?
+> ```bash
+> python pegasusV-1.2.py   # Run v1.2
+> python pegasus_v1.1.py   # Run v1.1
+> ```
+
+---
+
+#### 📡 How to Connect a Device in Termux
+
+You can control another Android device from Termux using **Wi-Fi (Wireless ADB)**.
+
+**Method 1 — Connect another device over Wi-Fi**
+
+1. Enable USB Debugging on the target device (see [Android Device Setup](#-android-device-setup) section)
+2. Connect the target device to your phone (running Termux) via USB cable
+3. Run this command in Termux:
+```bash
+adb tcpip 5555
+```
+4. Unplug the USB cable, then find the target device IP:  
+   → Settings → Wi-Fi → Tap connected network → IP Address
+5. Run Pegasus and select **`[2] Connect a Device`**
+6. Enter the IP address — wireless connection is now active ✅
+
+**Method 2 — Manage the same device (localhost)**
+
+If you want to manage your own phone directly:
+```bash
+adb connect localhost:5555
+```
+> ⚠️ This requires either a rooted phone or Wireless Debugging enabled (Android 11+ → Developer Options → Wireless Debugging).
+
+---
+
+#### ❌ What Does Not Work in Termux
+
+| Feature | Status | Reason |
+|---------|--------|--------|
+| Screen Mirror (Option 5) | ❌ Not supported | `scrcpy` requires a display server |
+| All other features | ✅ Fully supported | Runs entirely over ADB |
+
+---
+
+#### 💡 Termux Tips
+
+- **Grant storage permission** (required for file pull/push features):
+  ```bash
+  termux-setup-storage
+  ```
+- **Keyboard shortcut:** Volume Down button acts as the Ctrl key
+- **Prevent screen timeout:** Go to Settings → Display → Screen Timeout and increase the duration while using the tool
+- **Better colors:** Install the **Termux:Styling** app from F-Droid for improved terminal color themes
+
+---
+
+
 
 USB Debugging must be enabled on your Android device before Pegasus can connect.
 
@@ -447,13 +616,16 @@ All generated files are saved in the **same directory** where you run the script
 
 ## 📋 Dependency Summary
 
-| Dependency | Required | Purpose | Install |
-|-----------|----------|---------|---------|
-| Python 3.7+ | ✅ Yes | Run the tool | `sudo apt install python3` |
-| ADB | ✅ Yes | Device communication | `sudo apt install adb` |
-| scrcpy | ⚪ Optional | Screen Mirror feature | `sudo apt install scrcpy` |
-| nmap | ⚪ Optional | Network scan in Security Tools | `sudo apt install nmap` |
-| Git | ⚪ Recommended | Clone the repository | `sudo apt install git` |
+| Dependency | Required | Purpose | Install (Linux/macOS) | Install (Termux) |
+|-----------|----------|---------|-----------------------|-----------------|
+| Python 3.7+ | ✅ Yes | Run the tool | `sudo apt install python3` | `pkg install python` |
+| colorama | ✅ Yes | Color terminal output | `pip3 install colorama` | `pip install colorama` |
+| ADB | ✅ Yes | Device communication | `sudo apt install adb` | `pkg install android-tools` |
+| scrcpy | ⚪ Optional | Screen Mirror feature | `sudo apt install scrcpy` | ❌ Termux mein kaam nahi |
+| nmap | ⚪ Optional | Network scan in Security Tools | `sudo apt install nmap` | `pkg install nmap` |
+| Git | ⚪ Recommended | Clone the repository | `sudo apt install git` | `pkg install git` |
+
+> 💡 **Shortcut:** `pip install -r requirements.txt` se sab Python dependencies ek baar mein install ho jaati hain.
 
 ---
 
@@ -464,6 +636,7 @@ All generated files are saved in the **same directory** where you run the script
 | `pegasus_v_1.3.py` | v1.3 *(Latest)* | `python3 pegasus_v_1.3.py` |
 | `pegasusV-1.2.py` | v1.2 | `python3 pegasusV-1.2.py` |
 | `pegasus_v1.1.py` | v1.1 | `python3 pegasus_v1.1.py` |
+| `requirements.txt` | — | `pip install -r requirements.txt` |
 
 ---
 
